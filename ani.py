@@ -84,13 +84,13 @@ async def Extract_Names_and_Post(files, path="", strm=0):
     for file in files:
         name = file["name"]
         mime_type = file["mimeType"]
-        full_path = os.path.join(path, name)
+        full_path = os.path.join(path, name).replace('\\', '/')  # 统一使用正斜杠
         if "folder" in mime_type:
             os.makedirs(os.path.join(strm_directory, full_path), exist_ok=True)
-            folder_files = await Get_Names_from_Folder(f"{ani}{full_path}/")
+            folder_files = await Get_Names_from_Folder(f"{ani.rstrip('/')}/{full_path}/")
             strm = await Extract_Names_and_Post(folder_files, full_path, strm)
         elif "video" in mime_type:
-            video_url = f"{ani}{full_path}"
+            video_url = f"{ani.rstrip('/')}/{full_path}"
             strm = await STRM_File(video_url, name, path, strm)
     return strm
 
