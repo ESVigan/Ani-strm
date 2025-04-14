@@ -11,8 +11,8 @@ logger.add(
     format="<green>{time:YYYY-MM-DD HH:mm:ss:SSS}</green> | <level>{level: <8}</level> | <green>{name}:{function}:{line}</green> - <level>{message}</level>",
     level="DEBUG"
 )
-xmlurl = "https://aniapi.0m.ee/ani-download.xml"
-ani = "https://ani.0m.ee/"
+xmlurl = "https://aniapi.td.ee/ani-download.xml"
+ani = "https://ani.td.ee/"
 headers = {
     'origin': ani,
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
